@@ -31,4 +31,11 @@ export class LicenseService {
     return this.http.put<License>(this.common.api + this.apiPath + '/' + id, license);
   }
 
+  gen(id: string) {
+    return this.http.get<License>(this.common.api + this.apiPath + '/gen/' + id);
+  }
+
+  download(id: string) {
+    return this.http.get(this.common.api + this.apiPath + '/download/' + id);
+  }
 }

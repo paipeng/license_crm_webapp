@@ -102,6 +102,12 @@ export class LicenseComponent implements OnInit {
 
   genLicense() {
     console.info('genLicense');
+    this.licenseService.gen(this.id!).subscribe((license: License) => {
+      console.info('genLicense: ' + license.signature);
+      this.license = license;
+    }, (error) => {
+      console.info('genLicense error: ' + error.status);
+    });
   }
 
   downloadLicense() {
