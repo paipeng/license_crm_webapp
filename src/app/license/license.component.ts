@@ -27,9 +27,10 @@ export class LicenseComponent implements OnInit {
 
   ngOnInit(): void {
     this.id = this.activatedRoute.snapshot.paramMap.get('id');
-    if (this.id !== null) {
+    if (this.id !== null && this.id !== '0') {
       this.getLicenseById(this.id);
     } else {
+      this.id = null;
       this.license = new License();
     }
   }
@@ -49,7 +50,7 @@ export class LicenseComponent implements OnInit {
   }
 
   goBack() {
-
+    this.router.navigate(['/licenses']);
   }
 
   saveLicense() {

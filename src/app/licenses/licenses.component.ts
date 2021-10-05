@@ -75,7 +75,7 @@ export class LicensesComponent implements OnInit {
 
   applyLicense() {
     if (this.licenseNumber < this.licenseMaxNumber) {
-      this.router.navigate(['/licenses']);
+      this.router.navigate(['/licenses', 0]);
     } else {
       this.dialog.openMessageDialog({
         title: '许可数量不足',
