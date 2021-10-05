@@ -16,6 +16,7 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { LicensesComponent } from './licenses/licenses.component';
 
+import { IdcardInterceptor } from './interceptor/idcard.interceptor';
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +38,9 @@ import { LicensesComponent } from './licenses/licenses.component';
     MaterialModule,
     ReactiveFormsModule,
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: IdcardInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
