@@ -9,14 +9,18 @@ import { StorageService } from '../service/storage.service';
   styleUrls: ['./header.component.scss']
 })
 export class HeaderComponent implements OnInit {
-  user: User | undefined;
+  user: User = new User();
   constructor(
     private router: Router,
     private storage: StorageService
-  ) { }
+  ) {
+
+  }
 
   ngOnInit(): void {
-    this.user = this.storage.getItem('user');
+    if (this.storage.getUser() !== null) {
+      this.user = this.storage.getUser();
+    }
   }
 
   logout() {
