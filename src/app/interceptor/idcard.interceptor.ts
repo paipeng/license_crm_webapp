@@ -26,7 +26,7 @@ export class IdcardInterceptor implements HttpInterceptor {
 
     if (this.storage.getItem('token') && this.storage.getItem('token').token) {
       req = req.clone({
-        headers: req.headers.set('Authorization', this.storage.getItem('token').token)
+        headers: req.headers.set('Authorization', 'Bearer ' + this.storage.getItem('token').token)
       });
     }
 
