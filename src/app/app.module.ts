@@ -14,6 +14,7 @@ import { MaterialModule } from './material.module';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
+import { LicensesComponent } from './licenses/licenses.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { HeaderComponent } from './header/header.component';
     MessageComponent,
     DeleteComponent,
     HomeComponent,
-    HeaderComponent
+    HeaderComponent,
+    LicensesComponent
   ],
   imports: [
     BrowserModule,
