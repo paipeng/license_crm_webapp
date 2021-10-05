@@ -1,3 +1,69 @@
 <p i18n>login works!</p>
 
 <p>login works!</p>
+
+
+
+<div class="login">
+    <div class="header">
+        <div>
+            <img src="./assets/images/logo.png" (click)="goWebsite()">
+        </div>
+        <div>
+            <span i18n>title</span>
+        </div>
+    </div>
+    <div class="content">
+        <div class="container">
+            <div class="title" i18n>welcome_login</div>
+            <form class="form">
+                <div>
+                    <input type="text" class="input-control" formControlName="username" placeholder="inputUsername"
+                        autocomplete=" off">
+                </div>
+                <div>
+                    <input type="text" class="input-control" [ngClass]="{'password': passwordFlag}"
+                        formControlName="password" placeholder="inputPassword" autocomplete="off">
+                    <div class="passwordImage" (click)="changePasswordFlag()">
+                        <img [src]="passwordImage">
+                    </div>
+                </div>
+                <div>
+                    <input type="text" class="input-control" formControlName="code" placeholder="inputCode"
+                        autocomplete="off" (keypress)="keypress($event)">
+                    <div class="codeImage" (click)="getCode()">
+                        <img src="{{codeImage}}">
+                    </div>
+                </div>
+                <div>
+                    <div class="btn" (click)="login()">login</div>
+                </div>
+            </form>
+            <div class="save-username">
+                <!--
+                <input type="checkbox" [(ngModel)]="saveUsername">
+                -->
+                login_save_username
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div>
+            copyright
+            <!--
+            {{'copyright' | translate}} {{'put_on_record' | translate}} ( {{'version' | translate}}: {{version.version}}
+            )
+            -->
+        </div>
+        <div>
+            <div>
+                <img class="logo" src="./assets/images/wechat.jpg">
+                <div>'follow_wechat_public_account' </div>
+            </div>
+            <div>
+                <img class="logo" src="./assets/images/app.jpg">
+                <div>'download'</div>
+            </div>
+        </div>
+    </div>
+</div>

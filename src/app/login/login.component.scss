@@ -1,0 +1,200 @@
+.login {
+    width: 100%;
+    height: 100%;
+    background-color: #ffffff;
+}
+
+.header {
+    width: 100%;
+    height: 70px;
+    line-height: 70px;
+}
+
+.header>div:nth-child(1) {
+    float: left !important;
+    margin-left: 10% !important;
+    padding-top: 13px !important;
+}
+
+.header>div:nth-child(1) img {
+    height: 36px;
+    width: auto;
+    cursor: pointer;
+    outline: none;
+}
+
+.header>div:nth-child(2) {
+    float: left !important;
+    margin-left: 40px !important;
+    font-size: 18px;
+    color: #333333;
+}
+
+.content {
+    position: relative;
+    width: 100%;
+    height: 600px;
+    background: url("../../assets/images/background.png") no-repeat center top;
+}
+
+.content .container {
+    position: absolute;
+    width: 360px;
+    top: 50%;
+    transform: translateY(-50%);
+    right: 10%;
+    z-index: 1;
+    background-color: #ffffff;
+}
+
+.container .title {
+    width: 100%;
+    font-size: 16px;
+    font-weight: bolder;
+    color: #333333;
+    margin: 40px auto !important;
+    text-align: center;
+}
+
+.form {
+    width: 300px;
+    margin: 0 auto;
+}
+
+.form>div {
+    position: relative;
+    text-align: center;
+}
+
+.input-control {
+    width: 280px;
+    height: 40px;
+    border-style: none;
+    border: 1px solid #dbdbdb;
+    font-size: 14px;
+    color: #333333;
+    outline: none;
+    margin-bottom: 20px;
+    padding-left: 10px;
+}
+
+.input-control::-webkit-input-placeholder {
+    color: #dbdbdb !important;
+}
+
+.input-control:-moz-placeholder {
+    color: #dbdbdb !important;
+}
+
+.input-control:-ms-input-placeholder {
+    color: #dbdbdb !important;
+}
+
+.password {
+    -webkit-text-security: disc;
+}
+
+.passwordImage {
+    position: absolute;
+    top: 12px;
+    right: 10px;
+    cursor: pointer;
+    outline: none;
+}
+
+.passwordImage img {
+    width: 24px;
+    height: auto;
+}
+
+.codeImage {
+    position: absolute;
+    top: 6px;
+    right: 6px;
+    cursor: pointer;
+    line-height: 36px;
+    outline: none;
+}
+
+.btn {
+    width: 302px;
+    height: 42px;
+    text-align: center;
+    line-height: 42px;
+    cursor: pointer;
+    background-color: #55acee;
+    color: #ffffff;
+    font-size: 18px;
+    outline: none;
+}
+
+.save-username {
+    width: 300px;
+    margin: 20px auto 40px auto !important;
+    font-size: 13px;
+    color: #999999;
+}
+
+input[type=checkbox] {
+    -webkit-appearance: none;
+    margin-right: 5px;
+    cursor: pointer;
+    font-size: 14px;
+    width: 15px;
+    height: 12px;
+    position: relative;
+    outline: none;
+}
+
+input[type=checkbox]::after {
+    position: absolute;
+    width: 10px;
+    height: 15px;
+    top: 0;
+    content: " ";
+    background-color: #ffffff;
+    color: #fff;
+    display: inline-block;
+    padding: 1px 4px;
+    border: 1px solid #dbdbdb;
+    border-radius: 2px;
+}
+
+input[type=checkbox]:checked::after {
+    content: "✔";
+    font-size: 14px;
+    line-height: 16px;
+    background-color: #55acee;
+}
+
+.footer {
+    width: 100%;
+}
+
+.footer>div:nth-child(1) {
+    float: left !important;
+    margin-left: 10% !important;
+    padding-top: 10px !important;
+    font-size: 13px;
+    color: #333333;
+}
+
+.footer>div:nth-child(2) {
+    float: right !important;
+    margin-right: 10% !important;
+    padding-top: 10px !important;
+}
+
+.footer>div:nth-child(2)>div {
+    float: left !important;
+    width: 100px;
+    text-align: center;
+    font-size: 12px;
+    color: #333333;
+}
+
+.footer img {
+    width: 100px;
+    height: 100px;
+    margin-bottom: -6px !important;
+}
