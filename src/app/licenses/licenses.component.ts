@@ -57,8 +57,8 @@ export class LicensesComponent implements OnInit {
       this.dataSource.sort = this.sort;
       //this.paginator.pageSize = 10;
       //this.paginator.pageSizeOptions = [10, 25, 50];
-      this.dataSource.paginator.pageSize = 10;
-      this.dataSource.paginator.pageSizeOptions = [10, 25, 50];
+      //this.dataSource.paginator.pageSize = 10;
+      //this.dataSource.paginator.pageSizeOptions = [10, 25, 50];
       this.licenseNumber = this.dataTable.length;
     });
   }
