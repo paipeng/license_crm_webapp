@@ -1,1 +1,21 @@
-<p>home works!</p>
+<mat-sidenav-container class="home">
+    <mat-sidenav mode="side" opened class="sidenav">
+        <ul class="nav">
+            <li id="li1">
+                <a [routerLink]="['/licenses']">licenses</a>
+            </li>
+
+        </ul>
+        <div class="sidenav-fotter">
+            <span>version: {{ version!.version! }}</span>
+            <br>
+            <span>owner_company</span>
+        </div>
+    </mat-sidenav>
+
+    <mat-sidenav-content>
+        <app-header></app-header>
+        <div class="temp"></div>
+        <router-outlet></router-outlet>
+    </mat-sidenav-content>
+</mat-sidenav-container>

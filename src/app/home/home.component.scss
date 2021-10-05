@@ -1,0 +1,52 @@
+.home {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: #ffffff;
+}
+
+.sidenav {
+    width: 14%;
+    background-color: #000000;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.nav {
+    margin-top: 84px;
+    padding: 0;
+}
+
+.nav li {
+    list-style: none;
+}
+
+.nav li a {
+    display: block;
+    height: 56px;
+    line-height: 56px;
+    padding-left: 20px;
+    text-decoration: none;
+    color: #ffffff;
+}
+
+.nav li:hover {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.nav .active {
+    background-color: rgba(255, 255, 255, 0.4);
+}
+
+.sidenav-fotter {
+    position: absolute;
+    left: 10px;
+    bottom: 10px;
+    font-size: 14px;
+}
+
+.temp {
+    height: 64px;
+}

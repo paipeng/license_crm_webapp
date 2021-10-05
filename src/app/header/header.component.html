@@ -1,0 +1,12 @@
+<mat-toolbar class="header">
+    <mat-toolbar-row>
+        <div fxFlex="70">
+            <span class="title">title</span>
+        </div>
+        <div fxFlex="30" class="user">
+            <img src="./assets/images/person.png">
+            <span class="username">{{user!.email}}</span>&nbsp;
+            <span class="logout" (click)="logout()">logout</span>
+        </div>
+    </mat-toolbar-row>
+</mat-toolbar>
