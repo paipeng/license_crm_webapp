@@ -16,7 +16,7 @@ export class UserService {
 
 
   login(user: User) {
-    return this.http.post(this.common.api + '/login', user);
+    return this.http.post<User>(this.common.api + '/login', user);
   }
 
 }

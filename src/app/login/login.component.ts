@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { User } from '../models/user.model';
 import { CommonService } from '../service/common.service';
 import { DialogService } from '../service/dialog.service';
 import { StorageService } from '../service/storage.service';
@@ -26,7 +27,7 @@ export class LoginComponent implements OnInit {
     private storage: StorageService
   ) {
     this.formModel = formBuilder.group({
-      username: ['', [Validators.required]],
+      email: ['', [Validators.required]],
       password: ['', [Validators.required]]
     });
 
@@ -61,14 +62,17 @@ export class LoginComponent implements OnInit {
 
   login() {
     var that = this;
-    this.userService.login(this.formModel.value).subscribe((res: any) => {
-      that.dialog.closeDialogNow();
+    this.userService.login(this.formModel.value).subscribe((user: User) => {
+      console.info('login success: ' + user.token)
+      //that.dialog.closeDialogNow();
+      that.dialog.openMessageDialog({ title: 'login success', message: user.email });
       that.checkChanged();
-      that.storage.setItem('token', { token: res.user.token });
-      that.storage.setItem('user', res.user);
+      that.storage.setItem('token', { token: user.token });
+      that.storage.setItem('user', user);
 
-      that.router.navigate(['/activities']);
+      //that.router.navigate(['/activities']);
     }, (error) => {
+      console.error('login failed: ' + error.status)
       that.dialog.closeDialogNow();
       that.getCode();
 
