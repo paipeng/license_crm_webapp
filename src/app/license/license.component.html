@@ -10,6 +10,19 @@
     <mat-divider></mat-divider>
 
     <mat-card-content>
+        <div fxLayout="row" class="margin-top-10">
+
+            <div fxFlex>
+                <div class="float-right margin-top-10">
+                    <button mat-raised-button color="primary" class="color-white" *ngIf="!license!.signature && id"
+                        (click)="genLicense()">license_gen</button>
+
+                    <button mat-raised-button color="primary" class="color-white" *ngIf="license!.signature && id"
+                        (click)="downloadLicense()">license_download</button>
+                </div>
+            </div>
+        </div>
+
         <form ngNoForm name="activityForm" class="padding-20">
             <div fxLayout="row">
                 <div fxFlex="40">

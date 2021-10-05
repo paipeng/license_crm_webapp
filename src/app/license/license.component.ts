@@ -99,4 +99,13 @@ export class LicenseComponent implements OnInit {
       });
     }
   }
+
+  genLicense() {
+    console.info('genLicense');
+  }
+
+  downloadLicense() {
+    console.info('downloadLicense');
+
+  }
 }
