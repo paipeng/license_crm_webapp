@@ -73,7 +73,7 @@ export class LicensesComponent implements OnInit {
 
   applyLicense() {
     if (this.licenseNumber < this.licenseMaxNumber) {
-      this.router.navigate(['/activity']);
+      this.router.navigate(['/license']);
     } else {
       this.dialog.openMessageDialog({
         title: '许可数量不足',
@@ -84,6 +84,7 @@ export class LicensesComponent implements OnInit {
 
   showLicense(id: number) {
     console.info('showLicense: ' + id);
+    this.router.navigate(['/license', id]);
   }
 
 

@@ -17,6 +17,7 @@ import { HeaderComponent } from './header/header.component';
 import { LicensesComponent } from './licenses/licenses.component';
 
 import { IdcardInterceptor } from './interceptor/idcard.interceptor';
+import { LicenseComponent } from './license/license.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -26,7 +27,8 @@ import { IdcardInterceptor } from './interceptor/idcard.interceptor';
     DeleteComponent,
     HomeComponent,
     HeaderComponent,
-    LicensesComponent
+    LicensesComponent,
+    LicenseComponent
   ],
   imports: [
     BrowserModule,
