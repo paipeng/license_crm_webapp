@@ -5,6 +5,12 @@
   "projects": {
     "IdcardCRM": {
       "projectType": "application",
+      "i18n": {
+        "locales": {
+          "zh": "src/locale/messages.zh.xlf",
+          "en": "src/locale/messages.en.xlf"
+        }
+      },
       "schematics": {
         "@schematics/angular:component": {
           "style": "sass"
@@ -68,6 +74,16 @@
                   "maximumError": "4kb"
                 }
               ]
+            },
+            "zh": {
+              "localize": [
+                "zh"
+              ]
+            },
+            "en": {
+              "localize": [
+                "en"
+              ]
             }
           },
           "defaultConfiguration": ""
@@ -80,6 +96,12 @@
           "configurations": {
             "production": {
               "browserTarget": "IdcardCRM:build:production"
+            },
+            "zh": {
+              "browserTarget": "IdcardCRM:build:zh"
+            },
+            "en": {
+              "browserTarget": "IdcardCRM:build:en"
             }
           }
         },
