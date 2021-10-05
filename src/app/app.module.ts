@@ -16,6 +16,10 @@ import { HomeComponent } from './home/home.component';
 import { HeaderComponent } from './header/header.component';
 import { LicensesComponent } from './licenses/licenses.component';
 
+
+import { MatInputModule } from '@angular/material/input';
+import { MatFormFieldModule } from "@angular/material/form-field";
+
 import { IdcardInterceptor } from './interceptor/idcard.interceptor';
 import { LicenseComponent } from './license/license.component';
 @NgModule({
@@ -38,6 +42,8 @@ import { LicenseComponent } from './license/license.component';
     FlexLayoutModule,
     HttpClientModule,
     MaterialModule,
+    MatFormFieldModule,
+    MatInputModule,
     ReactiveFormsModule,
   ],
   providers: [

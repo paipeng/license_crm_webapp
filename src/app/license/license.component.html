@@ -1,1 +1,99 @@
-<p>license works!</p>
+<mat-card id="activityCard" class="mat-elevation-z6 margin-20">
+    <mat-card-header fxLayout="row">
+        <mat-card-title fxFlex class="activity-name-input">
+            <span *ngIf="!id">alicense_apply</span>
+            <span *ngIf="id">license_name &nbsp;{{license!.app}}</span>
+        </mat-card-title>
+
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+        <form ngNoForm name="activityForm" class="padding-20">
+            <div fxLayout="row">
+                <div fxFlex="40">
+                    <mat-form-field fxFlex>
+                        <mat-label>license_app<span class="color-dd2c00">★</span>
+                        </mat-label>
+                        <input matInput type="text" autocomplete="off" [(ngModel)]="license!.app" maxlength="255"
+                            [readonly]="id">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="4"></div>
+                <div fxFlex="40">
+                    <mat-form-field fxFlex>
+                        <mat-label>expire_time<span class="color-dd2c00">★</span></mat-label>
+                        <input matInput autocomplete="off" [matDatepicker]="expireTime" [(ngModel)]="license!.expire"
+                            [readonly]="id">
+                        <mat-datepicker-toggle matSuffix [for]="expireTime" [disabled]="id!"></mat-datepicker-toggle>
+                        <mat-datepicker #expireTime></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+            <div fxLayout="row">
+                <div fxFlex="40">
+                    <mat-form-field fxFlex>
+                        <mat-label>license_owner</mat-label>
+                        <input matInput autocomplete="off" [(ngModel)]="license!.owner" maxlength="255" [readonly]="id"
+                            (ngModelChange)="checkLicenseOwner()">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="4"></div>
+                <div fxFlex="40">
+                    <mat-slide-toggle [(ngModel)]="license!.nanogrid" [disabled]="id!">nanogrid</mat-slide-toggle>
+                </div>
+            </div>
+
+
+
+            <div fxLayout="row" *ngIf="id">
+                <div fxFlex="40">
+                    <mat-form-field fxFlex>
+                        <mat-label>uuid<span class="color-dd2c00">★</span>
+                        </mat-label>
+                        <input matInput type="text" autocomplete="off" [(ngModel)]="license!.uuid" maxlength="255"
+                            [readonly]="id">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="4"></div>
+                <div fxFlex="40">
+                    <mat-form-field fxFlex>
+                        <mat-label>create_time<span class="color-dd2c00">★</span></mat-label>
+                        <input matInput autocomplete="off" [matDatepicker]="createTime" [readonly]="id"
+                            [(ngModel)]="license!.createTime">
+                        <mat-datepicker-toggle matSuffix [for]="createTime" [disabled]="id!"></mat-datepicker-toggle>
+                        <mat-datepicker #createTime></mat-datepicker>
+                    </mat-form-field>
+                </div>
+            </div>
+
+
+            <div fxLayout="row" *ngIf="id">
+                <div fxFlex="90">
+                    <mat-form-field fxFlex>
+                        <mat-label>signature</mat-label>
+                        <textarea matInput class="height-100" [(ngModel)]="license!.signature" maxlength="512"
+                            [readonly]=true></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout="row">
+                <div fxFlex="90">
+                    <div class="float-right">
+                        <button mat-raised-button type="button" (click)="goBack()">go back</button>
+                        &nbsp;&nbsp;
+                        <button mat-raised-button color="primary" class="color-white" type="button"
+                            [disabled]="!license!.owner" (click)="saveLicense()" *ngIf="!id">create</button>
+                        <button mat-raised-button color="primary" class="color-white" type="button"
+                            [disabled]="!license!.owner || !license!.app" (click)="saveLicense()"
+                            *ngIf="id">save</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>

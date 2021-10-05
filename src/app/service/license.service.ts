@@ -15,20 +15,20 @@ export class LicenseService {
 
 
   query() {
-    return this.http.get(this.common.api + this.apiPath);
+    return this.http.get<Array<License>>(this.common.api + this.apiPath);
   }
 
 
   get(id: string) {
-    return this.http.get(this.common.api + this.apiPath + '/' + id);
+    return this.http.get<License>(this.common.api + this.apiPath + '/' + id);
   }
 
   create(license: License) {
-    return this.http.post(this.common.api + this.apiPath, license);
+    return this.http.post<License>(this.common.api + this.apiPath, license);
   }
 
   update(id: string, license: License) {
-    return this.http.put(this.common.api + this.apiPath + '/' + id, license);
+    return this.http.put<License>(this.common.api + this.apiPath + '/' + id, license);
   }
 
 }

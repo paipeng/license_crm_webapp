@@ -3,6 +3,7 @@ import { MatPaginator } from '@angular/material/paginator';
 import { MatSort } from '@angular/material/sort';
 import { MatTableDataSource } from '@angular/material/table';
 import { Router } from '@angular/router';
+import { License } from '../models/license.model';
 import { User } from '../models/user.model';
 import { DialogService } from '../service/dialog.service';
 import { LicenseService } from '../service/license.service';
@@ -16,7 +17,7 @@ import { StorageService } from '../service/storage.service';
 export class LicensesComponent implements OnInit {
   licenseNumber: number;
   licenseMaxNumber: number;
-  dataTable = [];
+  dataTable: License[] | undefined;
   dataSource: any;
   displayedColumns: string[] = ['id', 'app', 'createTime', 'expire', 'nanogrid', 'uuid', 'owner', 'operation'];
   filter = { name: '' };
@@ -42,14 +43,15 @@ export class LicensesComponent implements OnInit {
     const user = this.storage.getUser();
     if (user == null) {
       this.router.navigate(['/login', 1]);
+    } else {
+      console.info('user token: ' + user.token)
     }
-    console.info('user token: ' + user.token)
     this.init();
   }
 
   init() {
-    this.licenseService.query().subscribe((res: any) => {
-      this.dataTable = res;//this.jsogService.deserialize(res);
+    this.licenseService.query().subscribe((licenses: Array<License>) => {
+      this.dataTable = licenses;//this.jsogService.deserialize(res);
       //this.dataTable = _.sortBy(this.dataTable, (item) => {
       //  return -item.id;
       //});
@@ -65,7 +67,7 @@ export class LicensesComponent implements OnInit {
 
 
   searchFileName(value: string) {
-    this.dataSource.data = this.dataTable.filter(
+    this.dataSource.data = this.dataTable!.filter(
       (d: any) => d.name.toLocaleLowerCase().indexOf(value.toLocaleLowerCase()) > -1
     );
   }
@@ -73,7 +75,7 @@ export class LicensesComponent implements OnInit {
 
   applyLicense() {
     if (this.licenseNumber < this.licenseMaxNumber) {
-      this.router.navigate(['/license']);
+      this.router.navigate(['/licenses']);
     } else {
       this.dialog.openMessageDialog({
         title: '许可数量不足',
@@ -84,7 +86,7 @@ export class LicensesComponent implements OnInit {
 
   showLicense(id: number) {
     console.info('showLicense: ' + id);
-    this.router.navigate(['/license', id]);
+    this.router.navigate(['/licenses', id]);
   }
 
 
