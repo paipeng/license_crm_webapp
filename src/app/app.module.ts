@@ -11,6 +11,7 @@ import { DeleteComponent } from './dialog/delete/delete.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from '@angular/common/http';
 import { MaterialModule } from './material.module';
+import { FlexLayoutModule } from '@angular/flex-layout';
 
 @NgModule({
   declarations: [
@@ -25,6 +26,7 @@ import { MaterialModule } from './material.module';
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    FlexLayoutModule,
     HttpClientModule,
     MaterialModule,
     ReactiveFormsModule,

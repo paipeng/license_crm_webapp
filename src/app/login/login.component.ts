@@ -27,8 +27,7 @@ export class LoginComponent implements OnInit {
   ) {
     this.formModel = formBuilder.group({
       username: ['', [Validators.required]],
-      password: ['', [Validators.required]],
-      code: ['', [Validators.required]]
+      password: ['', [Validators.required]]
     });
 
     this.passwordFlag = true;
