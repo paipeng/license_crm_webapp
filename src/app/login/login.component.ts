@@ -64,8 +64,8 @@ export class LoginComponent implements OnInit {
     var that = this;
     this.userService.login(this.formModel.value).subscribe((user: User) => {
       console.info('login success: ' + user.token)
-      //that.dialog.closeDialogNow();
-      that.dialog.openMessageDialog({ title: 'login success', message: user.email });
+      // that.dialog.closeDialogNow();
+      // that.dialog.openMessageDialog({ title: 'login success', message: user.email });
       that.checkChanged();
       that.storage.setItem('token', { token: user.token });
       that.storage.setItem('user', user);
@@ -74,6 +74,7 @@ export class LoginComponent implements OnInit {
     }, (error) => {
       console.error('login failed: ' + error.status)
       that.dialog.closeDialogNow();
+      that.dialog.openMessageDialog({ title: 'login failed', message: 'incorrect username or password' });
       that.getCode();
 
       that.storage.removeItem('token');
