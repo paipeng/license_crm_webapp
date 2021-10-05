@@ -115,9 +115,10 @@ export class LicenseComponent implements OnInit {
     console.info('downloadLicense');
     this.licenseService.download(this.id!).subscribe((response: any) => {
       console.info('genLicense: ' + this.license!.signature);
+      console.info('data len: ' + response.body);
       let filename: string = this.license!.uuid + '.license';
       let binaryData = [];
-      binaryData.push(response);
+      binaryData.push(response.body);
       let downloadLink = document.createElement('a');
       downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, { type: 'blob' }));
       downloadLink.setAttribute('download', filename);
