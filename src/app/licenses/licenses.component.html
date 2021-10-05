@@ -62,7 +62,8 @@
                 <th mat-header-cell *matHeaderCellDef>operation</th>
                 <td mat-cell *matCellDef="let element">
                     <span class="iconfont icon-editor cursor-pointer" (click)="showLicense(element.id)"></span>
-
+                    <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="showLicense(element.id)">home
+                    </mat-icon>
                 </td>
             </ng-container>
 
