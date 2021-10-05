@@ -70,7 +70,7 @@ export class LoginComponent implements OnInit {
       that.storage.setItem('token', { token: user.token });
       that.storage.setItem('user', user);
 
-      //that.router.navigate(['/activities']);
+      that.router.navigate(['/licenses']);
     }, (error) => {
       console.error('login failed: ' + error.status)
       that.dialog.closeDialogNow();
