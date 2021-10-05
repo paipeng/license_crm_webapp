@@ -32,7 +32,7 @@ export class LoginComponent implements OnInit {
 
     this.passwordFlag = true;
     this.saveUsername = false;
-    this.passwordImage = '../erp/assets/images/password_hide.png';
+    this.passwordImage = 'assets/images/password_hide.png';
     this.codeImage = '';
   }
 
@@ -44,7 +44,12 @@ export class LoginComponent implements OnInit {
   }
 
   changePasswordFlag() {
-
+    this.passwordFlag = !this.passwordFlag;
+    if (this.passwordFlag) {
+      this.passwordImage = 'assets/images/password_hide.png';
+    } else {
+      this.passwordImage = 'assets/images/password_show.png';
+    }
   }
 
 
