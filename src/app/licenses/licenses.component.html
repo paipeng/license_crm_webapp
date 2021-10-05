@@ -1,1 +1,75 @@
-<p>licenses works!</p>
+<mat-card id="activitiesCard" class="mat-elevation-z6 margin-20">
+    <mat-card-header fxLayout="row">
+        <mat-card-title fxFlex>activity_manage</mat-card-title>
+        <div fxFlex class="text-align-right">
+            <span>activity_number {{licenseNumber}}</span>
+            <span>&nbsp;</span>
+            <span>activity_max_number</span>
+        </div>
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+        <div fxLayout="row" class="margin-top-10">
+            <div fxFlex="20">
+                <mat-form-field fxFlex>
+                    <mat-label>license_name</mat-label>
+                    <input matInput type="text" autocomplete="off" [ngModel]="filter.name"
+                        (ngModelChange)="searchFileName($event)">
+                </mat-form-field>
+            </div>
+            <div fxFlex>
+                <div class="float-right margin-top-10">
+                    <button mat-raised-button color="primary" class="color-white"
+                        (click)="applyLicense()">license_apply</button>
+                </div>
+            </div>
+        </div>
+
+        <table mat-table [dataSource]="dataSource" matSort>
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>id</th>
+                <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+            </ng-container>
+            <ng-container matColumnDef="app">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>license_name</th>
+                <td mat-cell *matCellDef="let element"> {{element.app}} </td>
+            </ng-container>
+            <ng-container matColumnDef="createTime">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>create_time</th>
+                <td mat-cell *matCellDef="let element"> {{element.createTime | date : 'yyyy-MM-dd'}} </td>
+            </ng-container>
+            <ng-container matColumnDef="expire">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>expire_time</th>
+                <td mat-cell *matCellDef="let element"> {{element.expire | date : 'yyyy-MM-dd'}} </td>
+            </ng-container>
+            <ng-container matColumnDef="nanogrid">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>nanogrid</th>
+                <td mat-cell *matCellDef="let element"> {{element.nanogrid}} </td>
+            </ng-container>
+            <ng-container matColumnDef="uuid">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>uuid
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.uuid}} </td>
+            </ng-container>
+            <ng-container matColumnDef="owner">
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>owner
+                </th>
+                <td mat-cell *matCellDef="let element"> {{element.owner}} </td>
+            </ng-container>
+            <ng-container matColumnDef="operation">
+                <th mat-header-cell *matHeaderCellDef>operation</th>
+                <td mat-cell *matCellDef="let element">
+                    <span class="iconfont icon-editor cursor-pointer" (click)="showLicense(element.id)"></span>
+
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <mat-paginator showFirstLastButtons></mat-paginator>
+    </mat-card-content>
+</mat-card>
