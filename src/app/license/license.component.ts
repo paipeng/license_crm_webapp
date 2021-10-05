@@ -35,6 +35,7 @@ export class LicenseComponent implements OnInit {
     } else {
       this.id = null;
       this.license = new License();
+      this.license.app = 'IdCard';
     }
   }
 

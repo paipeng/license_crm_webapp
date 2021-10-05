@@ -30,7 +30,7 @@
                         <mat-label>license_app<span class="color-dd2c00">★</span>
                         </mat-label>
                         <input matInput type="text" autocomplete="off" [(ngModel)]="license!.app" maxlength="255"
-                            [readonly]="id">
+                            [readonly]="true">
                     </mat-form-field>
                 </div>
                 <div fxFlex="4"></div>
@@ -49,7 +49,7 @@
             <div fxLayout="row">
                 <div fxFlex="40">
                     <mat-form-field fxFlex>
-                        <mat-label>license_owner</mat-label>
+                        <mat-label>license_owner<span class="color-dd2c00">★</span></mat-label>
                         <input matInput autocomplete="off" [(ngModel)]="license!.owner" maxlength="255" [readonly]="id"
                             (ngModelChange)="checkLicenseOwner()">
                     </mat-form-field>
