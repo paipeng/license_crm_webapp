@@ -1,6 +1,7 @@
 import { User } from "./user.model";
 
 export class License {
+    public id: number | undefined;
     public owner: string | undefined;
     public app: string | undefined;
     public expire: number | undefined;
