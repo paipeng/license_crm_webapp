@@ -1,4 +1,5 @@
 import { DatePipe } from '@angular/common';
+import { HttpResponse } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { License } from '../models/license.model';
@@ -112,6 +113,18 @@ export class LicenseComponent implements OnInit {
 
   downloadLicense() {
     console.info('downloadLicense');
-
+    this.licenseService.download(this.id!).subscribe((response: any) => {
+      console.info('genLicense: ' + this.license!.signature);
+      let filename: string = this.license!.uuid + '.license';
+      let binaryData = [];
+      binaryData.push(response);
+      let downloadLink = document.createElement('a');
+      downloadLink.href = window.URL.createObjectURL(new Blob(binaryData, { type: 'blob' }));
+      downloadLink.setAttribute('download', filename);
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+    }, (error) => {
+      console.info('genLicense error: ' + error.status);
+    });
   }
 }

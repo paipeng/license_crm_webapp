@@ -1,4 +1,4 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { License } from '../models/license.model';
 import { CommonService } from './common.service';
@@ -36,6 +36,6 @@ export class LicenseService {
   }
 
   download(id: string) {
-    return this.http.get(this.common.api + this.apiPath + '/download/' + id);
+    return this.http.get(this.common.api + this.apiPath + '/download/' + id, { observe: 'response', responseType: 'blob' as 'json' });
   }
 }
