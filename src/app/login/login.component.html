@@ -16,7 +16,7 @@
     <div class="content">
         <div class="container">
             <div class="title" i18n>welcome_login</div>
-            <form class="form">
+            <form [formGroup]="formModel" class="form">
                 <div>
                     <input type="text" class="input-control" formControlName="username" placeholder="inputUsername"
                         autocomplete=" off">
