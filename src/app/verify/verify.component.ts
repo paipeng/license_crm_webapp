@@ -1,5 +1,6 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
+import { TranslateService } from '@ngx-translate/core';
 import { License } from '../models/license.model';
 import { LicenseBase64 } from '../models/licensebase64.model';
 import { DialogService } from '../service/dialog.service';
@@ -21,6 +22,7 @@ export class VerifyComponent implements OnInit {
     private router: Router,
     private dialog: DialogService,
     private activatedRoute: ActivatedRoute,
+    private translate: TranslateService,
     private licenseService: LicenseService
   ) {
     this.licenseBase64 = new LicenseBase64();
@@ -65,7 +67,12 @@ export class VerifyComponent implements OnInit {
       console.info('verifyLicense: ' + license.signature);
       this.license = license;
     }, (error) => {
-      console.info('genLicense error: ' + error.status);
+      console.info('verifyLicense error: ' + error.status);
+      this.dialog.openMessageDialog({
+        title:
+          this.translate.instant('license_verify')
+        , message: this.translate.instant('license_verify_error')
+      })
     });
   }
 

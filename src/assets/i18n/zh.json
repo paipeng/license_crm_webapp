@@ -29,5 +29,7 @@
     "save": "保存",
     "license_verify": "查验许可",
     "license_data": "许可数据",
-    "browser_license_file": "选择许可文件"
+    "browser_license_file": "选择许可文件",
+    "license_verify_error": "许可验证失败",
+    "clear": "清空"
 }
