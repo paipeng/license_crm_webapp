@@ -26,5 +26,6 @@
     "license_download": "下载许可文件",
     "go_back": "返回",
     "create": "创建",
-    "save": "保存"
+    "save": "保存",
+    "license_verify": "查验许可"
 }

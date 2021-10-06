@@ -1,6 +1,7 @@
 import { HttpClient, HttpResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { License } from '../models/license.model';
+import { LicenseBase64 } from '../models/licensebase64.model';
 import { CommonService } from './common.service';
 
 @Injectable({
@@ -37,5 +38,9 @@ export class LicenseService {
 
   download(id: string) {
     return this.http.get(this.common.api + this.apiPath + '/download/' + id, { observe: 'response', responseType: 'blob' as 'json' });
+  }
+
+  verify(licenseBase64: LicenseBase64) {
+    return this.http.post<License>(this.common.api + this.apiPath + '/verify', licenseBase64);
   }
 }

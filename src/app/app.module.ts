@@ -24,6 +24,7 @@ import { IdcardInterceptor } from './interceptor/idcard.interceptor';
 import { LicenseComponent } from './license/license.component';
 import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { VerifyComponent } from './verify/verify.component';
 
 
 export function createTranslateLoader(http: HttpClient) {
@@ -39,7 +40,8 @@ export function createTranslateLoader(http: HttpClient) {
     HomeComponent,
     HeaderComponent,
     LicensesComponent,
-    LicenseComponent
+    LicenseComponent,
+    VerifyComponent
   ],
   imports: [
     BrowserModule,

@@ -1,0 +1,60 @@
+<mat-card id="licenseVerify" class="mat-elevation-z6 margin-20">
+    <mat-card-header fxLayout="row">
+        <mat-card-title fxFlex class="activity-name-input">
+            <span>{{'license_verify' | translate }}</span>
+        </mat-card-title>
+
+    </mat-card-header>
+
+    <mat-divider></mat-divider>
+
+    <mat-card-content>
+        <div fxLayout="row" class="margin-top-10" style="height: 10px;">
+            <div fxFlex>
+                <div class="float-right margin-top-10">
+                </div>
+            </div>
+        </div>
+
+        <form ngNoForm name="activityForm" class="padding-20">
+            <div fxLayout="row">
+                <div fxFlex="40">
+                    <mat-form-field fxFlex>
+                        <mat-label>{{'license_app' | translate }}<span class="color-dd2c00">★</span>
+                        </mat-label>
+                        <input matInput type="text" autocomplete="off" [(ngModel)]="uploadFilePath" maxlength="255"
+                            [readonly]="true">
+                    </mat-form-field>
+                </div>
+                <div fxFlex="4"></div>
+                <div fxFlex="40">
+                    <button mat-raised-button type="button" (click)="uploadFile()">{{'go_back' | translate }}</button>
+                </div>
+            </div>
+
+
+            <div fxLayout="row">
+                <div fxFlex="90">
+                    <mat-form-field fxFlex>
+                        <mat-label>{{'license_signature' | translate }}</mat-label>
+                        <textarea matInput class="height-100" [(ngModel)]="licenseBase64!.base64"
+                            maxlength="512"></textarea>
+                    </mat-form-field>
+                </div>
+            </div>
+
+            <div fxLayout="row">
+                <div fxFlex="90" style="display: flex; justify-content: flex-end; margin-right: 20px;">
+                    <div class="float-right">
+                        <button mat-raised-button type="button" (click)="goBack()">{{'go_back' | translate }}</button>
+                        &nbsp;&nbsp;
+
+                        <button mat-raised-button color="primary" type="button" class="color-white"
+                            (click)="verifyLicense()" *ngIf="licenseBase64!.base64">{{'license_verify' |
+                            translate }}</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+    </mat-card-content>
+</mat-card>
