@@ -28,7 +28,11 @@
                 </div>
                 <div fxFlex="4"></div>
                 <div fxFlex="40">
-                    <button mat-raised-button type="button" (click)="uploadFile()">{{'go_back' | translate }}</button>
+                    <button mat-raised-button type="button" (click)="uploadFile()">{{'browser_license_file' | translate
+                        }}</button>
+
+                    <input type="file" #fileInput id="uploadFile" (change)="uploadFileEvt($event)" name="uploadFile"
+                        multiple="multiple" accept="*/*" />
                 </div>
             </div>
 
@@ -36,8 +40,8 @@
             <div fxLayout="row">
                 <div fxFlex="90">
                     <mat-form-field fxFlex>
-                        <mat-label>{{'license_signature' | translate }}</mat-label>
-                        <textarea matInput class="height-100" [(ngModel)]="licenseBase64!.base64"
+                        <mat-label>{{'license_data' | translate }}</mat-label>
+                        <textarea matInput class="height-200" [(ngModel)]="licenseBase64!.base64"
                             maxlength="512"></textarea>
                     </mat-form-field>
                 </div>
