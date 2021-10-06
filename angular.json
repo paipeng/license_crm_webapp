@@ -5,12 +5,6 @@
   "projects": {
     "IdcardCRM": {
       "projectType": "application",
-      "i18n": {
-        "locales": {
-          "zh": "src/locale/messages_zh.json",
-          "en": "src/locale/messages_en.json"
-        }
-      },
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
@@ -74,16 +68,6 @@
                   "maximumError": "4kb"
                 }
               ]
-            },
-            "zh": {
-              "localize": [
-                "zh"
-              ]
-            },
-            "en": {
-              "localize": [
-                "en"
-              ]
             }
           },
           "defaultConfiguration": ""
@@ -96,19 +80,7 @@
           "configurations": {
             "production": {
               "browserTarget": "IdcardCRM:build:production"
-            },
-            "zh": {
-              "browserTarget": "IdcardCRM:build:zh"
-            },
-            "en": {
-              "browserTarget": "IdcardCRM:build:en"
             }
-          }
-        },
-        "extract-i18n": {
-          "builder": "@angular-devkit/build-angular:extract-i18n",
-          "options": {
-            "browserTarget": "IdcardCRM:build"
           }
         },
         "test": {

@@ -22,6 +22,13 @@ import { MatFormFieldModule } from "@angular/material/form-field";
 
 import { IdcardInterceptor } from './interceptor/idcard.interceptor';
 import { LicenseComponent } from './license/license.component';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+
+
+export function createTranslateLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/', '.json');
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -45,6 +52,13 @@ import { LicenseComponent } from './license/license.component';
     MatFormFieldModule,
     MatInputModule,
     ReactiveFormsModule,
+    TranslateModule.forRoot({
+      loader: {
+        provide: TranslateLoader,
+        useFactory: (createTranslateLoader),
+        deps: [HttpClient]
+      }
+    }),
   ],
   providers: [
     { provide: HTTP_INTERCEPTORS, useClass: IdcardInterceptor, multi: true }

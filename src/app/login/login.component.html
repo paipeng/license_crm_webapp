@@ -1,21 +1,15 @@
-<p i18n>login works!</p>
-
-<p>login works!</p>
-
-
-
 <div class="login">
     <div class="header">
         <div>
             <img src="./assets/images/logo.png" (click)="goWebsite()">
         </div>
         <div>
-            <span i18n>title</span>
+            <span>{{'title' | translate}}</span>
         </div>
     </div>
     <div class="content">
         <div class="container">
-            <div class="title" i18n>welcome_login</div>
+            <div class="title">{{'title' | translate}}</div>
             <form [formGroup]="formModel" class="form">
                 <div>
                     <input type="text" class="input-control" formControlName="email" placeholder="inputUsername"
