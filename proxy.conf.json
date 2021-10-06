@@ -1,17 +1,14 @@
 {
     "/api": {
         "target": "http://localhost:8080/",
+        "headers": {
+            "Connection": "keep-alive"
+        },
         "logLevel": "debug",
         "secure": false,
         "changeOrigin": true,
         "pathRewrite": {
             "^/api": ""
         }
-    },
-    "/download": {
-        "target": "http://localhost:8080/",
-        "logLevel": "debug",
-        "secure": false,
-        "changeOrigin": true
     }
 }

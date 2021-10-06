@@ -9,7 +9,7 @@ import {
 } from '@angular/common/http';
 import { Observable, of, throwError } from 'rxjs';
 import { StorageService } from '../service/storage.service';
-import { catchError } from 'rxjs/internal/operators';
+import { catchError, tap } from 'rxjs/internal/operators';
 
 @Injectable()
 export class IdcardInterceptor implements HttpInterceptor {
@@ -32,11 +32,33 @@ export class IdcardInterceptor implements HttpInterceptor {
 
     const isLogin = req.url.endsWith('/login');
     return next.handle(req).pipe(
-      catchError((err: HttpErrorResponse) => this.handleData(err, isLogin))
+
+      /*
+      tap(event => {
+      if (event instanceof HttpResponse) {
+
+        console.log(" all looks good");
+        // http response status code
+        console.log(event.body);
+      }
+    }, error => {
+      // http response status code
+      console.log("----response----");
+      console.error("status code:");
+      console.error(error.status);
+      console.error(error.message);
+      console.log("--- end of response---");
+
+    }),
+    */
+      catchError(err =>
+        this.handleData(err, isLogin)
+      )
     );
   }
 
   private handleData(event: HttpResponse<any> | HttpErrorResponse, isLogin: boolean): Observable<any> {
+    console.error('handleData: ' + event.status);
     switch (event.status) {
       case 0:
         this.logout();
