@@ -1,28 +1,28 @@
 <mat-card id="activitiesCard" class="mat-elevation-z6 margin-20">
     <mat-card-header fxLayout="row">
-        <mat-card-title fxFlex>activity_manage</mat-card-title>
+        <mat-card-title fxFlex>{{ 'license_manage' | translate }}</mat-card-title>
         <div fxFlex class="text-align-right">
-            <span>activity_number {{licenseNumber}}</span>
+            <span>{{ 'license_number' | translate }} {{licenseNumber}}</span>
             <span>&nbsp;</span>
-            <span>activity_max_number</span>
+            <span>（&nbsp;{{ 'license_max_number' | translate }} x&nbsp;）</span>
         </div>
     </mat-card-header>
 
     <mat-divider></mat-divider>
 
     <mat-card-content>
-        <div fxLayout="row" class="margin-top-10">
+        <div fxLayout="row" class="margin-top-10 searchPane">
             <div fxFlex="20">
                 <mat-form-field fxFlex>
-                    <mat-label>license_name</mat-label>
+                    <mat-label>{{'license_owner' | translate }}</mat-label>
                     <input matInput type="text" autocomplete="off" [ngModel]="filter.name"
                         (ngModelChange)="searchFileName($event)">
                 </mat-form-field>
             </div>
-            <div fxFlex>
+            <div fxFlex="80" style="display: flex; justify-content: flex-end; margin-right: 20px;">
                 <div class="float-right margin-top-10">
-                    <button mat-raised-button color="primary" class="color-white"
-                        (click)="applyLicense()">license_apply</button>
+                    <button mat-raised-button color="primary" class="color-white" (click)="applyLicense()">{{
+                        'license_apply' | translate }}</button>
                 </div>
             </div>
         </div>
@@ -33,33 +33,32 @@
                 <td mat-cell *matCellDef="let element"> {{element.id}} </td>
             </ng-container>
             <ng-container matColumnDef="app">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>license_name</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'license_app' | translate }}</th>
                 <td mat-cell *matCellDef="let element"> {{element.app}} </td>
             </ng-container>
             <ng-container matColumnDef="createTime">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>create_time</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'license_create_time' | translate }}</th>
                 <td mat-cell *matCellDef="let element"> {{element.createTime | date : 'yyyy-MM-dd'}} </td>
             </ng-container>
             <ng-container matColumnDef="expire">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>expire_time</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'license_expire' | translate }}</th>
                 <td mat-cell *matCellDef="let element"> {{element.expire | date : 'yyyy-MM-dd'}} </td>
             </ng-container>
             <ng-container matColumnDef="nanogrid">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>nanogrid</th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'license_nanogrid' | translate }}</th>
                 <td mat-cell *matCellDef="let element"> {{element.nanogrid}} </td>
             </ng-container>
             <ng-container matColumnDef="uuid">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>uuid
-                </th>
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'license_uuid' | translate }}</th>
                 <td mat-cell *matCellDef="let element"> {{element.uuid}} </td>
             </ng-container>
             <ng-container matColumnDef="owner">
-                <th mat-header-cell *matHeaderCellDef mat-sort-header>owner
+                <th mat-header-cell *matHeaderCellDef mat-sort-header>{{ 'license_owner' | translate }}
                 </th>
                 <td mat-cell *matCellDef="let element"> {{element.owner}} </td>
             </ng-container>
             <ng-container matColumnDef="operation">
-                <th mat-header-cell *matHeaderCellDef>operation</th>
+                <th mat-header-cell *matHeaderCellDef>{{ 'operation' | translate }}</th>
                 <td mat-cell *matCellDef="let element">
                     <span class="iconfont icon-editor cursor-pointer" (click)="showLicense(element.id)"></span>
                     <mat-icon aria-hidden="false" aria-label="Example home icon" (click)="showLicense(element.id)">home

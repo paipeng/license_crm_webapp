@@ -9,5 +9,17 @@
     "company": "IdCard 证卡安全打印",
     "download": "下载程序",
     "licenses": "软件许可",
-    "version": "版本"
+    "version": "版本",
+    "license_manage": "软件许可管理",
+    "license_number": "许可数量",
+    "license_max_number": "许可最高数量",
+    "license_app": "许可软件名称",
+    "license_owner": "分配客户名称",
+    "license_expire": "过期日期",
+    "license_signature": "签名",
+    "license_create_time": "创建日期",
+    "license_nanogrid": "防伪码",
+    "license_uuid": "序列号",
+    "operation": "操作",
+    "license_apply": "申请新许可"
 }
