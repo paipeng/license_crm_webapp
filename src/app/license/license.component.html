@@ -34,7 +34,7 @@
                     <mat-form-field fxFlex>
                         <mat-label>{{'license_expire' | translate }}<span class="color-dd2c00">★</span></mat-label>
                         <input matInput autocomplete="off" [matDatepicker]="expireTime" [(ngModel)]="license!.expire"
-                            [readonly]="id">
+                            [readonly]="license!.signature">
                         <mat-datepicker-toggle matSuffix [for]="expireTime" [disabled]="id!"></mat-datepicker-toggle>
                         <mat-datepicker #expireTime></mat-datepicker>
                     </mat-form-field>
@@ -46,13 +46,14 @@
                 <div fxFlex="40">
                     <mat-form-field fxFlex>
                         <mat-label>{{'license_owner' | translate }}<span class="color-dd2c00">★</span></mat-label>
-                        <input matInput autocomplete="off" [(ngModel)]="license!.owner" maxlength="255" [readonly]="id"
-                            (ngModelChange)="checkLicenseOwner()">
+                        <input matInput autocomplete="off" [(ngModel)]="license!.owner" maxlength="255"
+                            [readonly]="license!.signature" (ngModelChange)="checkLicenseOwner()">
                     </mat-form-field>
                 </div>
                 <div fxFlex="4"></div>
                 <div fxFlex="40">
-                    <mat-slide-toggle [(ngModel)]="license!.nanogrid" [disabled]="id!">{{'license_nanogrid' | translate
+                    <mat-slide-toggle [(ngModel)]="license!.nanogrid" [disabled]="license!.signature!">
+                        {{'license_nanogrid' | translate
                         }}</mat-slide-toggle>
                 </div>
             </div>
@@ -65,7 +66,7 @@
                         <mat-label>{{'license_uuid' | translate }}<span class="color-dd2c00">★</span>
                         </mat-label>
                         <input matInput type="text" autocomplete="off" [(ngModel)]="license!.uuid" maxlength="255"
-                            [readonly]="id">
+                            [readonly]="license!.signature">
                     </mat-form-field>
                 </div>
                 <div fxFlex="4"></div>
