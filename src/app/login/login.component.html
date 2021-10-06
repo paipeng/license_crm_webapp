@@ -1,7 +1,7 @@
 <div class="login">
     <div class="header">
         <div>
-            <img src="./assets/images/logo.png" (click)="goWebsite()">
+            <img src="./assets/images/idcard-logo2-512.jpeg" (click)="goWebsite()">
         </div>
         <div>
             <span>{{'title' | translate}}</span>
@@ -9,47 +9,42 @@
     </div>
     <div class="content">
         <div class="container">
-            <div class="title">{{'title' | translate}}</div>
+            <div class="title">{{'welcome_login' | translate}}</div>
             <form [formGroup]="formModel" class="form">
                 <div>
-                    <input type="text" class="input-control" formControlName="email" placeholder="inputUsername"
-                        autocomplete=" off">
+                    <input type="text" class="input-control" formControlName="email"
+                        placeholder="{{'input_username' | translate}} " autocomplete=" off">
                 </div>
                 <div>
                     <input type="text" class="input-control" [ngClass]="{'password': passwordFlag}"
-                        formControlName="password" placeholder="inputPassword" autocomplete="off">
+                        formControlName="password" placeholder="{{'input_password' | translate}}" autocomplete="off">
                     <div class="passwordImage" (click)="changePasswordFlag()">
                         <img [src]="passwordImage">
                     </div>
                 </div>
                 <div>
-                    <div class="btn" (click)="login()">login</div>
+                    <div class="btn" (click)="login()">{{'login'|translate}}</div>
                 </div>
             </form>
             <div class="save-username">
                 <!--
                 <input type="checkbox" [(ngModel)]="saveUsername">
                 -->
-                login_save_username
+
             </div>
         </div>
     </div>
     <div class="footer">
         <div>
-            copyright
-            <!--
-            {{'copyright' | translate}} {{'put_on_record' | translate}} ( {{'version' | translate}}: {{version.version}}
+            {{'copyright' | translate}} {{'company' | translate}} ( {{'version' | translate}}: {{version.version}}
             )
-            -->
+
         </div>
         <div>
+
             <div>
-                <img class="logo" src="./assets/images/wechat.jpg">
-                <div>'follow_wechat_public_account' </div>
-            </div>
-            <div>
-                <img class="logo" src="./assets/images/app.jpg">
-                <div>'download'</div>
+                <img class="logo" src="./assets/images/download_link.png">
+                <div>{{'download' | translate}}</div>
             </div>
         </div>
     </div>

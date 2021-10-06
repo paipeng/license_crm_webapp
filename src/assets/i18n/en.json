@@ -1,3 +1,6 @@
 {
-    "title": "IdCard CRM"
+    "title": "IdCard CRM",
+    "welcome_login": "欢迎登录",
+    "input_username": "请输入用户名",
+    "input_password": "请输入密码"
 }

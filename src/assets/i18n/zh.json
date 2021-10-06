@@ -1,3 +1,11 @@
 {
-    "title": "IdCard CRM"
+    "title": "IdCard 证卡标签 软件许可管理系统 CRM",
+    "welcome_login": "欢迎登录",
+    "input_username": "请输入用户名",
+    "input_password": "请输入密码",
+    "login": "登录",
+    "logout": "退出",
+    "copyright": "Copyright © 2021",
+    "company": "IdCard Security Printing",
+    "download": "下载程序"
 }
