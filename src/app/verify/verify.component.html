@@ -52,6 +52,9 @@
                     <div class="float-right">
                         <button mat-raised-button type="button" (click)="goBack()">{{'go_back' | translate }}</button>
                         &nbsp;&nbsp;
+                        <button mat-raised-button color="primary" type="button" (click)="clear()">{{'clear' | translate
+                            }}</button>
+                        &nbsp;&nbsp;
 
                         <button mat-raised-button color="primary" type="button" class="color-white"
                             (click)="verifyLicense()" *ngIf="licenseBase64!.base64">{{'license_verify' |
@@ -59,6 +62,79 @@
                     </div>
                 </div>
             </div>
+
+
+
+            <div *ngIf="license">
+
+                <div fxLayout="row">
+                    <div fxFlex="40">
+                        <mat-form-field fxFlex>
+                            <mat-label>{{'license_app' | translate }}<span class="color-dd2c00">★</span>
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" [(ngModel)]="license!.app" maxlength="255"
+                                [readonly]="true">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="4"></div>
+                    <div fxFlex="40">
+                        <mat-form-field fxFlex>
+                            <mat-label>{{'license_expire' | translate }}<span class="color-dd2c00">★</span></mat-label>
+                            <input matInput autocomplete="off" [matDatepicker]="expireTime"
+                                [(ngModel)]="license!.expire" [readonly]="license!.signature">
+                            <mat-datepicker-toggle matSuffix [for]="expireTime" [disabled]="true">
+                            </mat-datepicker-toggle>
+                            <mat-datepicker #expireTime></mat-datepicker>
+                        </mat-form-field>
+                    </div>
+                </div>
+
+
+                <div fxLayout="row">
+                    <div fxFlex="40">
+                        <mat-form-field fxFlex>
+                            <mat-label>{{'license_owner' | translate }}<span class="color-dd2c00">★</span></mat-label>
+                            <input matInput autocomplete="off" [(ngModel)]="license!.owner" maxlength="255"
+                                [readonly]="true">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="4"></div>
+                    <div fxFlex="40">
+                        <mat-slide-toggle [(ngModel)]="license!.nanogrid" [disabled]="license!.signature!">
+                            {{'license_nanogrid' | translate
+                            }}</mat-slide-toggle>
+                    </div>
+                </div>
+
+
+
+                <div fxLayout="row" *ngIf="license">
+                    <div fxFlex="40">
+                        <mat-form-field fxFlex>
+                            <mat-label>{{'license_uuid' | translate }}<span class="color-dd2c00">★</span>
+                            </mat-label>
+                            <input matInput type="text" autocomplete="off" [(ngModel)]="license!.uuid" maxlength="255"
+                                [readonly]="license!.signature">
+                        </mat-form-field>
+                    </div>
+                    <div fxFlex="4"></div>
+                    <div fxFlex="40">
+
+                    </div>
+                </div>
+
+
+                <div fxLayout="row">
+                    <div fxFlex="90">
+                        <mat-form-field fxFlex>
+                            <mat-label>{{'license_signature' | translate }}</mat-label>
+                            <textarea matInput class="height-100" [(ngModel)]="license!.signature" maxlength="512"
+                                [readonly]=true></textarea>
+                        </mat-form-field>
+                    </div>
+                </div>
+            </div>
+
         </form>
     </mat-card-content>
 </mat-card>

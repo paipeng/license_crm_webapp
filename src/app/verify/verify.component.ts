@@ -11,7 +11,7 @@ import { LicenseService } from '../service/license.service';
   styleUrls: ['./verify.component.scss']
 })
 export class VerifyComponent implements OnInit {
-  licenseBase64: LicenseBase64;
+  licenseBase64: LicenseBase64 | undefined;
   uploadFilePath: string;
   @ViewChild('fileInput') fileInput: ElementRef | undefined;
   fileAttr = 'Choose File';
@@ -38,8 +38,9 @@ export class VerifyComponent implements OnInit {
         this.fileAttr += file.name + ' - ';
       });
       */
-      this.fileAttr += imgFile.target.files[0];
+      this.fileAttr += imgFile.target.files[0].name;
       console.info('file: ' + this.fileAttr);
+      this.uploadFilePath = imgFile.target.files[0].name;
 
       // HTML5 FileReader API
       var that = this;
@@ -48,7 +49,7 @@ export class VerifyComponent implements OnInit {
         var data = e.target.result;
 
         console.info('data: ' + data);
-        that.licenseBase64.base64 = data;
+        that.licenseBase64!.base64 = data;
       };
       reader.readAsDataURL(imgFile.target.files[0]);
 
@@ -74,5 +75,11 @@ export class VerifyComponent implements OnInit {
 
   goBack() {
     this.router.navigate(['/licenses']);
+  }
+
+  clear() {
+    this.licenseBase64 = new LicenseBase64;
+    this.license = undefined;
+    this.uploadFilePath = '';
   }
 }
