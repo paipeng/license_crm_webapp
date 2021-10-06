@@ -97,19 +97,21 @@
                     <div class="float-right">
                         <button mat-raised-button type="button" (click)="goBack()">{{'go_back' | translate }}</button>
                         &nbsp;&nbsp;
-                        <button mat-raised-button color="primary" class="color-white" type="button"
+                        <button mat-raised-button type="button" color="primary" class="color-white" type="button"
                             [disabled]="!license!.owner" (click)="saveLicense()" *ngIf="!id">{{'create' | translate
                             }}</button>
-                        <button mat-raised-button color="primary" class="color-white" type="button"
+                        <button mat-raised-button color="primary" type="button" class="color-white" type="button"
                             [disabled]="!license!.owner || !license!.app" (click)="saveLicense()"
                             *ngIf="id && !license!.signature">{{'save' |
                             translate }}</button>
                         &nbsp;&nbsp;
-                        <button mat-raised-button color="primary" class="color-white" *ngIf="!license!.signature && id"
-                            (click)="genLicense()">{{'license_generate' | translate }}</button>
+                        <button mat-raised-button color="primary" type="button" class="color-white"
+                            *ngIf="!license!.signature && id" (click)="genLicense()">{{'license_generate' | translate
+                            }}</button>
 
-                        <button mat-raised-button color="primary" class="color-white" *ngIf="license!.signature && id"
-                            (click)="downloadLicense()">{{'license_download' | translate }}</button>
+                        <button mat-raised-button color="primary" type="button" class="color-white"
+                            (click)="downloadLicense()" *ngIf="license!.signature && id">{{'license_download' |
+                            translate }}</button>
                     </div>
                 </div>
             </div>
