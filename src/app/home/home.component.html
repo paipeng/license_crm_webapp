@@ -2,20 +2,21 @@
     <mat-sidenav mode="side" opened class="sidenav">
         <ul class="nav">
             <li id="li1">
-                <a [routerLink]="['/licenses']">licenses</a>
+                <a [routerLink]="['/licenses']">{{'licenses' | translate}}</a>
             </li>
 
         </ul>
         <div class="sidenav-fotter">
-            <span>version: {{ version!.version! }}</span>
+            <span>{{'version' | translate}}: {{ version!.version! }}</span>
             <br>
-            <span>owner_company</span>
+            <span>{{'company' | translate}}</span>
         </div>
     </mat-sidenav>
 
-    <mat-sidenav-content>
+    <mat-sidenav-content class="mat_content">
         <app-header></app-header>
         <div class="temp"></div>
+
         <router-outlet></router-outlet>
     </mat-sidenav-content>
 </mat-sidenav-container>

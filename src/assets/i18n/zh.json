@@ -6,6 +6,8 @@
     "login": "登录",
     "logout": "退出",
     "copyright": "Copyright © 2021",
-    "company": "IdCard Security Printing",
-    "download": "下载程序"
+    "company": "IdCard 证卡安全打印",
+    "download": "下载程序",
+    "licenses": "软件许可",
+    "version": "版本"
 }
