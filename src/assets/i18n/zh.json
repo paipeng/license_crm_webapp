@@ -21,5 +21,10 @@
     "license_nanogrid": "防伪码",
     "license_uuid": "序列号",
     "operation": "操作",
-    "license_apply": "申请新许可"
+    "license_apply": "申请新许可",
+    "license_generate": "生成签名许可文件",
+    "license_download": "下载许可文件",
+    "go_back": "返回",
+    "create": "创建",
+    "save": "保存"
 }
