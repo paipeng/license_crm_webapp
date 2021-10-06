@@ -60,10 +60,11 @@ export class LicenseComponent implements OnInit {
   saveLicense() {
     const that = this;
     if (!this.id) {
+      console.info('create license');
       this.licenseService.create(this.license!).subscribe((license: License) => {
         that.license = license;
         that.id = String(license.id);
-        //that.router.navigate(['/activity', license!.id]);
+        //that.router.navigate(['/licenses', license!.id]);
       }, (error) => {
         if (error.status === 400 || error.status === 403 || error.status === 404) {
           that.dialog.openMessageDialog({
@@ -78,6 +79,7 @@ export class LicenseComponent implements OnInit {
         }
       });
     } else {
+      console.info('update license');
       this.licenseService.update(this.id, this.license!).subscribe((license: License) => {
         that.license = license;
         that.dialog.openMessageDialog({
@@ -115,7 +117,7 @@ export class LicenseComponent implements OnInit {
   downloadLicense() {
     console.info('downloadLicense');
     this.licenseService.download(this.id!).subscribe((response: any) => {
-      console.info('genLicense: ' + this.license!.signature);
+      console.info('downloadLicense: ' + this.license!.signature);
       console.info('data len: ' + response.body);
       let filename: string = this.license!.uuid + '.license';
       let binaryData = [];
@@ -126,7 +128,7 @@ export class LicenseComponent implements OnInit {
       document.body.appendChild(downloadLink);
       downloadLink.click();
     }, (error) => {
-      console.info('genLicense error: ' + error.status);
+      console.info('downloadLicense error: ' + error.status);
     });
   }
 }

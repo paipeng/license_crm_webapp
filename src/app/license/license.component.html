@@ -97,10 +97,11 @@
                         <button mat-raised-button type="button" (click)="goBack()">{{'go_back' | translate }}</button>
                         &nbsp;&nbsp;
                         <button mat-raised-button color="primary" class="color-white" type="button"
-                            [disabled]="!license!.owner" (click)="saveLicense()" *ngIf="!id">{{'go_back' | translate
+                            [disabled]="!license!.owner" (click)="saveLicense()" *ngIf="!id">{{'create' | translate
                             }}</button>
                         <button mat-raised-button color="primary" class="color-white" type="button"
-                            [disabled]="!license!.owner || !license!.app" (click)="saveLicense()" *ngIf="id">{{'save' |
+                            [disabled]="!license!.owner || !license!.app" (click)="saveLicense()"
+                            *ngIf="id && !license!.signature">{{'save' |
                             translate }}</button>
                         &nbsp;&nbsp;
                         <button mat-raised-button color="primary" class="color-white" *ngIf="!license!.signature && id"
